@@ -91,25 +91,25 @@ void HamiltonianCycle(std::vector <std::vector <int>>& Graph)
 		}   
 	}  
 
-	//Counting degree for every node
-	int degree = 0;
-	std::vector <int> Deg;
+	//Counting number of adjacents for every node
+	int number = 0;
+	std::vector <int> Num;
 	for (auto& bigvec_it : Graph)
 	{
 		for (auto& vec_it : bigvec_it)
 		{
-			degree++;
+			number++;
 		}
-		Deg.push_back(degree -1);
-		degree = 0;
+		Num.push_back(number -1);
+		number = 0;
 	}
 
 	//Checking conditions of O.Ore
 	int count = 0;
 	for(int j = 0; j < NonAdj.size()-1; j++)
 	{
-		auto itt1 = next(Deg.begin(), NonAdj[j]);
-		auto itt2 = next(Deg.begin(), NonAdj[j+1]);
+		auto itt1 = next(Num.begin(), NonAdj[j]);
+		auto itt2 = next(Num.begin(), NonAdj[j+1]);
 		if ((*itt1 + *itt2) <= Graph.size() && (*itt1 + *itt2) <= Graph.size()-1)
 		{
 			count++;
