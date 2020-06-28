@@ -131,7 +131,7 @@ void HamiltonianCycle(std::vector <std::vector <int>>& Graph)
 			}
 			else OutOfCycle.push_back(i);
 		}
-		Cycle.push_back(Graph.back().back());
+		Cycle.push_back(0);
 		
 		int h = 0;
 		for (int j = 0; j < OutOfCycle.size(); j++)
